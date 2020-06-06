@@ -3,18 +3,18 @@ import React from "react";
 // Components
 import Print from "./components/layout/Print";
 import LeftIndex from "./components/sideBar/leftSide/LeftIndex";
-import RightSide from "./components/sideBar/RightSide";
+import RightSide from "./components/sideBar/rightSide/RightSide";
 
 const App = () => {
   return (
-    <div class="gridContainer">
-      <div class="left">
+    <div className="gridContainer">
+      <div className="left">
         <LeftIndex />
       </div>
-      <div class="center">
+      <div className="center">
         <Print />
       </div>
-      <div class="right">
+      <div className="right">
         <RightSide />
       </div>
     </div>

@@ -31,6 +31,11 @@ ul.left_list {
   background: whitesmoke;
   border: 0;
   padding: 10px 5px;
-  width: 90%;
+  width: 95%;
   border-radius: 5px;
+}
+.fromGroup input:focus,
+select:focus,
+textarea:focus {
+  outline: none !important;
 }

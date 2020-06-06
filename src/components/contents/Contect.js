@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import SabujCv from "./SabujCv";
 
-const Contect = () => {
+const Contect = ({ data }) => {
   return (
     <div>
       <p style={{ lineHeight: "2", color: "red" }}>
@@ -8,6 +9,7 @@ const Contect = () => {
         ipsa, vero quis consequuntur aut amet asperiores sint in adipisci,
         quibusdam debitis esse? Eum ipsa qui nihil itaque iure quasi.
       </p>
+      <SabujCv data={data && data} />
     </div>
   );
 };
