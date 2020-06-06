@@ -3,8 +3,7 @@
   background-color: #fff;
   height: 100vh;
   overflow-y: scroll;
-  padding-top: 1.5rem;
-  padding-bottom: 1.5rem;
+  padding: 10px;
 }
 ul.left_list {
   list-style: none;
@@ -19,8 +18,19 @@ ul.left_list {
   font-size: 1.1em;
   cursor: pointer;
 }
+.active {
+  background: #4a5568;
+  color: white;
+}
 .from {
   width: 100%;
 }
 .fromGroup {
+}
+.fromGroup input {
+  background: whitesmoke;
+  border: 0;
+  padding: 10px 5px;
+  width: 90%;
+  border-radius: 5px;
 }
