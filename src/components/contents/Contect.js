@@ -15,8 +15,8 @@ const Contect = () => {
         ipsa, vero quis consequuntur aut amet asperiores sint in adipisci,
         quibusdam debitis esse? Eum ipsa qui nihil itaque iure quasi.
       </p>
-      {cv === "sabuj" && <SabujCv data={data && data} />}
-      {cv === "rakib" && <RakibCv data={data && data} />}
+      {cv === "sabuj" && <SabujCv data={data ? data : ""} />}
+      {cv === "rakib" && <RakibCv data={data ? data : ""} />}
     </div>
   );
 };

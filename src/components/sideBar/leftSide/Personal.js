@@ -18,8 +18,9 @@ const Personal = () => {
   const onChange = (e) => {
     setData({ ...data, [e.target.name]: e.target.value });
     if (e.target.name == "profilePic")
-      fromData.current.profilePic = e.target.value;
-    if (e.target.name == "name") fromData.current.name = e.target.value;
+      fromData.current = { ...fromData.current, profilePic: e.target.value };
+    if (e.target.name == "name")
+      fromData.current = { ...fromData.current, name: e.target.value };
     const { profilePic, name } = fromData.current;
 
     localStorage.setItem("cv", JSON.stringify({ profilePic, name }));
