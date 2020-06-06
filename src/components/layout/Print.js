@@ -10,13 +10,12 @@ const Playground = () => {
     setIframeContent(<Contect />);
     return setTimeout(() => {
       const iframe = document.querySelectorAll("#printWrapper iframe")[0];
-
       iframe.contentWindow.print();
     }, 1);
   };
 
   return (
-    <div className="App">
+    <div className="">
       {iframeContent ? (
         <div id="printWrapper" style={{ display: "none" }}>
           <ThemeProvider theme={{}}>
@@ -24,8 +23,9 @@ const Playground = () => {
           </ThemeProvider>
         </div>
       ) : undefined}
-      <br />
-      <button onClick={handlePrint}>Print</button>
+      <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+        Button
+      </button>
     </div>
   );
 };

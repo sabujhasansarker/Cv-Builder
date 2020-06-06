@@ -1,0 +1,26 @@
+.left {
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  background-color: #fff;
+  height: 100vh;
+  overflow-y: scroll;
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+}
+ul.left_list {
+  list-style: none;
+  margin: 0;
+  padding: 0px;
+}
+
+.left_list li {
+  margin-bottom: 10px;
+  padding: 7px;
+  border-radius: 5px;
+  font-size: 1.1em;
+  cursor: pointer;
+}
+.from {
+  width: 100%;
+}
+.fromGroup {
+}

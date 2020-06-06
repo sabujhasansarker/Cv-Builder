@@ -10,7 +10,8 @@
     "react-dom": "^16.13.1",
     "react-scripts": "3.4.1",
     "react-styled-frame": "^1.1.0",
-    "styled-components": "^5.1.1"
+    "styled-components": "^5.1.1",
+    "tailwindcss": "^1.4.6"
   },
   "scripts": {
     "start": "react-scripts start",
