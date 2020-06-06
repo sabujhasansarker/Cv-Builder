@@ -1,7 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect } from "react";
 import SabujCv from "./SabujCv";
+import DataContext from "../../context/DataContext";
 
-const Contect = ({ data }) => {
+const Contect = () => {
+  const { data, getData } = useContext(DataContext);
+  useEffect(() => {
+    getData();
+  }, []);
   return (
     <div>
       <p style={{ lineHeight: "2", color: "red" }}>

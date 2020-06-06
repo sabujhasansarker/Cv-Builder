@@ -1,8 +1,13 @@
-import React from "react";
+import React, { Fragment } from "react";
 
-const SabujCv = ({ data: { profilePic } }) => {
+const SabujCv = ({ data: { profilePic, name } }) => {
   console.log(profilePic);
-  return <img src={profilePic} alt="" />;
+  return (
+    <Fragment>
+      <h1>{name}</h1>
+      <img src={profilePic} alt="" />
+    </Fragment>
+  );
 };
 
 export default SabujCv;

@@ -1,8 +1,11 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState, useContext } from "react";
 
 import style from "./Style.module.css";
 
+import DataContext from "../../../context/DataContext";
+
 const Personal = () => {
+  const { getData } = useContext(DataContext);
   const [data, setData] = useState();
 
   useEffect(() => {
@@ -18,8 +21,9 @@ const Personal = () => {
       fromData.current.profilePic = e.target.value;
     if (e.target.name == "name") fromData.current.name = e.target.value;
     const { profilePic, name } = fromData.current;
-    console.log(fromData.current);
+
     localStorage.setItem("cv", JSON.stringify({ profilePic, name }));
+    getData();
   };
   return (
     <form onSubmit={(e) => e.preventDefault()} className={from}>
