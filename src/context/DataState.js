@@ -1,8 +1,8 @@
-import React, { useReducer, useEffect, useState } from "react";
+import React, { useReducer } from "react";
 import DataContext from "./DataContext";
 import DataReducer from "./DataReducar";
 
-import { SET_CV, GET_DATA } from "./Type";
+import { SET_CV, GET_DATA, ADD_DATA, SET_DATA } from "./Type";
 
 const DataState = (props) => {
   const initialState = {
@@ -25,9 +25,19 @@ const DataState = (props) => {
       payload: name,
     });
   };
+
+  const addBio = (data) => {
+    dispatch({
+      type: ADD_DATA,
+      payload: JSON.stringify(data),
+    });
+    dispatch({
+      type: SET_DATA,
+    });
+  };
   return (
     <DataContext.Provider
-      value={{ data: state.data, cv: state.cv, getData, setCv }}
+      value={{ data: state.data, cv: state.cv, getData, setCv, addBio }}
     >
       {props.children}
     </DataContext.Provider>

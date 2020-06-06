@@ -13,13 +13,21 @@ import Hobbies from "./Hobbies";
 import Languages from "./Languages";
 import References from "./References";
 import Additional from "./Additional";
+import Profile from "./Profile";
 
 const LeftIndex = () => {
-  const [activeItem, setActiveItem] = useState("personal");
+  const [activeItem, setActiveItem] = useState("profile");
   const { left_list, left, active } = style;
   return (
     <div className={left}>
       <ul className={left_list}>
+        <li
+          onClick={() => setActiveItem("profile")}
+          className={`${activeItem === "profile" ? active : ""}`}
+        >
+          Profile
+        </li>
+        {activeItem === "profile" && <Profile />}
         <li
           onClick={() => setActiveItem("personal")}
           className={`${activeItem === "personal" ? active : ""}`}

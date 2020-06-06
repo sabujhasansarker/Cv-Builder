@@ -28,12 +28,15 @@ ul.left_list {
 }
 .fromGroup {
 }
-.fromGroup input {
+.fromGroup input,
+.fromGroup textarea {
   background: whitesmoke;
   border: 0;
   padding: 10px 5px;
   display: block;
   border-radius: 5px;
+  resize: none;
+  width: 94%;
 }
 .fromGroup input:focus,
 select:focus,
