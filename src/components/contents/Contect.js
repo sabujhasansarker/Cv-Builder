@@ -1,9 +1,10 @@
 import React, { useContext, useEffect } from "react";
 import SabujCv from "./SabujCv";
 import DataContext from "../../context/DataContext";
+import RakibCv from "./RakibCv";
 
 const Contect = () => {
-  const { data, getData } = useContext(DataContext);
+  const { data, getData, cv, setCv } = useContext(DataContext);
   useEffect(() => {
     getData();
   }, []);
@@ -14,7 +15,8 @@ const Contect = () => {
         ipsa, vero quis consequuntur aut amet asperiores sint in adipisci,
         quibusdam debitis esse? Eum ipsa qui nihil itaque iure quasi.
       </p>
-      <SabujCv data={data && data} />
+      {cv === "sabuj" && <SabujCv data={data && data} />}
+      {cv === "rakib" && <RakibCv data={data && data} />}
     </div>
   );
 };
