@@ -1,59 +1,78 @@
-import React, { Fragment, useState } from "react";
+import React, { useState, useContext, useEffect } from "react";
 
-import style from "./Style.module.css";
+import DataContext from "../../../context/DataContext";
 
 const Experience = () => {
-  const [addToggle, setAddToggle] = useState([{ id: 1 }]);
-  const { from, fromGroup } = style;
+  const { getData, data, addExp, deleteExp } = useContext(DataContext);
+  useEffect(() => {
+    getData();
+  }, []);
+  const [formData, setFormData] = useState({
+    name: "",
+    field_of_study: "",
+    result: "",
+    degree: "",
+  });
+  const onChange = (e) =>
+    setFormData({
+      ...formData,
+      id: Math.random(),
+      [e.target.name]: e.target.value,
+    });
+  const onSubmit = (e) => {
+    e.preventDefault();
+    addExp(formData);
+    setFormData({ name: "", field_of_study: "", result: "", degree: "" });
+  };
   return (
-    <Fragment>
-      {addToggle.length > 0 &&
-        addToggle.map((e) => (
-          <form key={e.id} className={fromGroup}>
-            <div className="formGroup">
-              <label>School Name</label>
-              <input
-                type="text"
-                className="form-control"
-                placeholder="School name"
-                name="school"
-              />
-            </div>
-            <div className="formGroup">
-              <label>Group</label>
-              <input
-                type="text"
-                className="form-control"
-                placeholder="Group"
-                name="group"
-              />
-            </div>
-            <div className="formGroup">
-              <label>Passing Year</label>
-              <input
-                type="date"
-                className="form-control"
-                placeholder="Passing Year"
-                name="passing year"
-              />
-            </div>
-            <div className="formGroup">
-              <label>Result</label>
-              <input
-                type="text"
-                className="form-control"
-                placeholder="Result"
-                name="result"
-              />
-            </div>
-          </form>
-        ))}{" "}
-      <button
-        onClick={(e) => setAddToggle([...addToggle, { id: Math.random() }])}
-      >
-        add
-      </button>
-    </Fragment>
+    <div className="edu_exp">
+      {data &&
+        data.experience &&
+        data.experience.map((exp) => (
+          <h1 onClick={() => deleteExp(exp.id)}>{exp.name}</h1>
+        ))}
+      <form onSubmit={onSubmit}>
+        <div className="from-group">
+          <input
+            type="text"
+            placeholder="School name"
+            name="name"
+            onChange={onChange}
+            value={formData.name}
+          />
+        </div>
+        <div className="from-group">
+          <input
+            type="text"
+            placeholder="Degree"
+            name="degree"
+            onChange={onChange}
+            value={formData.degree}
+          />
+        </div>
+        <div className="from-group">
+          <input
+            type="text"
+            placeholder="Field Of Study"
+            name="field_of_study"
+            onChange={onChange}
+            value={formData.field_of_study}
+          />
+        </div>
+        <div className="from-group">
+          <input
+            type="text"
+            placeholder="Result"
+            name="result"
+            onChange={onChange}
+            value={formData.result}
+          />
+        </div>
+        <div className="from-group">
+          <input type="submit" value="Sumbit" />
+        </div>
+      </form>
+    </div>
   );
 };
 

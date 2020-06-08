@@ -8,6 +8,7 @@ const DataState = (props) => {
   const initialState = {
     data: {},
     education: [],
+    experience: [],
     cv: "sabuj",
   };
 
@@ -38,6 +39,7 @@ const DataState = (props) => {
     });
   };
 
+  // edu
   const addEdu = (eduData) => {
     let edudata =
       localStorage.getItem("cv") && JSON.parse(localStorage.getItem("cv"));
@@ -75,6 +77,44 @@ const DataState = (props) => {
       type: GET_DATA,
     });
   };
+  // exp
+  const addExp = (expData) => {
+    let expdata =
+      localStorage.getItem("cv") && JSON.parse(localStorage.getItem("cv"));
+    state.experience = expdata.experience ? expdata.experience : [];
+
+    state.experience = [expData, ...state.experience];
+    state.data = { ...state.data, experience: state.experience };
+    dispatch({
+      type: ADD_DATA,
+      payload: state.data,
+    });
+    dispatch({
+      type: SET_DATA,
+    });
+    dispatch({
+      type: GET_DATA,
+    });
+  };
+
+  const deleteExp = (id) => {
+    let expData =
+      localStorage.getItem("cv") && JSON.parse(localStorage.getItem("cv"));
+    state.experience = expData.experience ? expData.experience : [];
+
+    state.experience = state.experience.filter((edu) => edu.id !== id);
+    state.data = { ...state.data, experience: state.experience };
+    dispatch({
+      type: ADD_DATA,
+      payload: state.data,
+    });
+    dispatch({
+      type: SET_DATA,
+    });
+    dispatch({
+      type: GET_DATA,
+    });
+  };
   return (
     <DataContext.Provider
       value={{
@@ -85,6 +125,8 @@ const DataState = (props) => {
         addBio,
         addEdu,
         deleteEdu,
+        addExp,
+        deleteExp,
       }}
     >
       {props.children}
