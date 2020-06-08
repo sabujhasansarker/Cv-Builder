@@ -1,4 +1,4 @@
-import { GET_DATA, SET_CV, ADD_DATA, SET_DATA } from "./Type";
+import { GET_DATA, SET_CV, ADD_DATA, SET_DATA, ADD_EDU } from "./Type";
 
 export default (state, action) => {
   const { type, payload } = action;
@@ -18,8 +18,13 @@ export default (state, action) => {
         ...state,
         data: payload,
       };
+    case ADD_EDU:
+      return {
+        ...state,
+        data: payload,
+      };
     case SET_DATA:
-      localStorage.setItem("cv", state.data);
+      localStorage.setItem("cv", JSON.stringify(state.data));
     default:
       return state;
   }
