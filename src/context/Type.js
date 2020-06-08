@@ -5,5 +5,5 @@ export const GET_DATA = "GET_DATA";
 export const ADD_EDU = "ADD_EDU";
 export const ADD_EXP = "ADD_EXP";
 export const SET_CURRENT = "SET_CURRENT";
-export const UPDATE_EDU = "UPDATE_EDU";
-export const UPDATE_EXP = "UPDATE_EXP";
+export const DELETE_EDU = "DELETE_EDU";
+export const DELETE_EXP = "DELETE_EXP";

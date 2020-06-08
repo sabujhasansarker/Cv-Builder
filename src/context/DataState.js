@@ -56,6 +56,25 @@ const DataState = (props) => {
       type: GET_DATA,
     });
   };
+
+  const deleteEdu = (id) => {
+    let edudata =
+      localStorage.getItem("cv") && JSON.parse(localStorage.getItem("cv"));
+    state.education = edudata.education ? edudata.education : [];
+
+    state.education = state.education.filter((edu) => edu.id !== id);
+    state.data = { ...state.data, education: state.education };
+    dispatch({
+      type: ADD_DATA,
+      payload: state.data,
+    });
+    dispatch({
+      type: SET_DATA,
+    });
+    dispatch({
+      type: GET_DATA,
+    });
+  };
   return (
     <DataContext.Provider
       value={{
@@ -65,6 +84,7 @@ const DataState = (props) => {
         setCv,
         addBio,
         addEdu,
+        deleteEdu,
       }}
     >
       {props.children}

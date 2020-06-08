@@ -3,15 +3,10 @@ import React, { useState, useContext, useEffect } from "react";
 import DataContext from "../../../context/DataContext";
 
 const Education = () => {
-  const { addEdu, getData, data } = useContext(DataContext);
-
+  const { addEdu, getData, data, deleteEdu } = useContext(DataContext);
   useEffect(() => {
     getData();
   }, []);
-  const [education, setEducation] = useState(
-    data && data.education ? data.education : []
-  );
-
   const [formData, setFormData] = useState({
     name: "",
     field_of_study: "",
@@ -28,11 +23,14 @@ const Education = () => {
     e.preventDefault();
     addEdu(formData);
     setFormData({ name: "", field_of_study: "", result: "", degree: "" });
-    getData();
-    setEducation(data && data.education);
   };
   return (
     <div className="edu_exp">
+      {data &&
+        data.education &&
+        data.education.map((edu) => (
+          <h1 onClick={() => deleteEdu(edu.id)}>{edu.name}</h1>
+        ))}
       <form onSubmit={onSubmit}>
         <div className="from-group">
           <input
@@ -74,7 +72,6 @@ const Education = () => {
           <input type="submit" value="Sumbit" />
         </div>
       </form>
-      <button>Add Education</button>
     </div>
   );
 };
