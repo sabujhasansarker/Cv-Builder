@@ -1,4 +1,4 @@
-import React, { useEffect, useContext } from "react";
+import React from "react";
 
 // Components
 import Print from "./components/layout/Print";
@@ -11,9 +11,7 @@ const App = () => {
   return (
     <DataState>
       <div className="gridContainer">
-        <div className="left">
-          <LeftIndex />
-        </div>
+        <div className="left">{/* <LeftIndex /> */}</div>
         <div className="center">
           <Contect />
           <Print />

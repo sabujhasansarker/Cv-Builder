@@ -104,7 +104,7 @@ const LeftIndex = () => {
             >
               Additional Information
             </li>
-            {activeItem === "Additional" && <Additional />}}
+            {activeItem === "Additional" && <Additional />}
           </Fragment>
         )}
       </ul>
