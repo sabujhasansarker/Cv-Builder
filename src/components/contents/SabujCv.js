@@ -99,6 +99,7 @@ const SabujCv = ({
     experience,
     skills,
     certificates,
+    references,
   },
 }) => {
   return (
@@ -363,6 +364,35 @@ const SabujCv = ({
         </div>
       </div>
       {/* Perrsonal end */}
+      {/* certificates */}
+      {references && references.length > 0 && (
+        <div style={styles.div}>
+          <p style={styles.title}>references</p>
+          <div style={styles.m_l}>
+            {references.map((ref) => (
+              <div style={{ marginBottom: "20px" }} key={ref.id}>
+                <b>{ref.name}</b>
+                <p style={styles.p}>{ref.designation}</p>
+                <p style={styles.p}>{ref.org}</p>
+                {ref.call && (
+                  <p style={styles.p}>
+                    <b>Call : </b>
+                    {ref.call}
+                  </p>
+                )}
+                {ref.email && (
+                  <p style={styles.p}>
+                    <b>Email : </b>
+                    {ref.email}
+                  </p>
+                )}
+              </div>
+            ))}
+          </div>
+          <br />
+        </div>
+      )}
+      {/* certificates end */}
     </Fragment>
   );
 };

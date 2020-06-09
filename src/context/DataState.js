@@ -10,6 +10,7 @@ const DataState = (props) => {
     education: [],
     experience: [],
     certificates: [],
+    references: [],
     cv: "sabuj",
   };
 
@@ -155,6 +156,44 @@ const DataState = (props) => {
       type: GET_DATA,
     });
   };
+  // references
+  const addreferences = (referencesData) => {
+    let expdata =
+      localStorage.getItem("cv") && JSON.parse(localStorage.getItem("cv"));
+    state.references = expdata.references ? expdata.references : [];
+
+    state.references = [referencesData, ...state.references];
+    state.data = { ...state.data, references: state.references };
+    dispatch({
+      type: ADD_DATA,
+      payload: state.data,
+    });
+    dispatch({
+      type: SET_DATA,
+    });
+    dispatch({
+      type: GET_DATA,
+    });
+  };
+
+  const deletereferences = (id) => {
+    let expData =
+      localStorage.getItem("cv") && JSON.parse(localStorage.getItem("cv"));
+    state.references = expData.references ? expData.references : [];
+
+    state.references = state.references.filter((edu) => edu.id !== id);
+    state.data = { ...state.data, references: state.references };
+    dispatch({
+      type: ADD_DATA,
+      payload: state.data,
+    });
+    dispatch({
+      type: SET_DATA,
+    });
+    dispatch({
+      type: GET_DATA,
+    });
+  };
   return (
     <DataContext.Provider
       value={{
@@ -169,6 +208,8 @@ const DataState = (props) => {
         deleteExp,
         addCertificates,
         deleteCertificates,
+        addreferences,
+        deletereferences,
       }}
     >
       {props.children}

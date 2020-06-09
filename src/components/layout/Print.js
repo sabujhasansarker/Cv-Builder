@@ -28,12 +28,11 @@ const Playground = () => {
           </ThemeProvider>
         </div>
       ) : undefined}
-      <button
-        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+      <img
+        className="printer_img"
         onClick={handlePrint}
-      >
-        Button
-      </button>
+        src="https://img.icons8.com/plasticine/100/000000/print.png"
+      />
     </div>
   );
 };

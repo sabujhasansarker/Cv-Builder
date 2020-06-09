@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect, Fragment } from "react";
+import React, { useState, useContext, Fragment } from "react";
 
 import style from "./Style.module.css";
 
@@ -6,13 +6,9 @@ import style from "./Style.module.css";
 import Personal from "./Personal";
 import Experience from "./Experience";
 import Education from "./Education";
-import Honors from "./Honors";
 import Certifications from "./Certification";
 import Skills from "./Skills";
-import Hobbies from "./Hobbies";
-import Languages from "./Languages";
 import References from "./References";
-import Additional from "./Additional";
 import Profile from "./Profile";
 
 // context
@@ -71,13 +67,7 @@ const LeftIndex = () => {
               Certifications
             </li>
             {activeItem === "Certifications" && <Certifications />}
-            <li
-              onClick={() => setActiveItem("Additional")}
-              className={`${activeItem === "Additional" ? active : ""}`}
-            >
-              Additional Information
-            </li>
-            {activeItem === "Additional" && <Additional />}
+
             <li
               onClick={() => setActiveItem("References")}
               className={`${activeItem === "References" ? active : ""}`}

@@ -92,4 +92,18 @@ img.cv_img {
 }
 .edu_sort p {
   font-weight: 300;
+  word-break: break-all;
+  width: 170px;
+}
+img.printer_img {
+  position: fixed;
+  top: 50%;
+  left: 46%;
+  margin-top: -50px;
+  margin-left: -46px;
+  width: 50px;
+  height: 50px;
+  opacity: 0.3;
+  z-index: 99;
+  cursor: url("https://img.icons8.com/plasticine/30/000000/print.png"), auto;
 }

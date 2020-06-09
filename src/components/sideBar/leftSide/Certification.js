@@ -46,14 +46,14 @@ const Certtification = () => {
             key={cer.id}
           >
             <p>
-              {cer.name.length > 20 ? (
-                <Fragment>{cer.name.substring(0, 20)} ...</Fragment>
+              {cer.name.length > 10 ? (
+                <Fragment>{cer.name.substring(0, 10)} ...</Fragment>
               ) : (
                 cer.name
               )}
               certificated from <br />
               {cer.institution.length > 20 ? (
-                <Fragment>{cer.institution.substring(0, 20)} ...</Fragment>
+                <Fragment>{cer.institution.substring(0, 10)} ...</Fragment>
               ) : (
                 cer.institution
               )}{" "}
