@@ -84,6 +84,8 @@ img.cv_img {
   background: powderblue;
   border-radius: 5px;
   margin-bottom: 10px;
+  cursor: url("https://img.icons8.com/plasticine/40/000000/delete-forever.png"),
+    auto;
 }
 .edu_sort h4 {
   font-weight: 400;

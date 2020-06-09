@@ -98,6 +98,7 @@ const SabujCv = ({
     education,
     experience,
     skills,
+    certificates,
   },
 }) => {
   return (
@@ -232,6 +233,35 @@ const SabujCv = ({
         </div>
       )}
       {/* education end */}
+      {/* certificates */}
+      {certificates && certificates.length > 0 && (
+        <div style={styles.div}>
+          <p style={styles.title}>Certificates</p>
+          <div style={styles.m_l}>
+            {certificates.map((edu) => (
+              <div style={{ marginBottom: "20px" }} key={edu.id}>
+                <b style={styles.edu_exp_}>
+                  <span>Certificates Name </span>
+                  <span>:</span>
+                  <span>{edu.name}</span>
+                </b>
+                <p style={styles.edu_exp_}>
+                  <b>Institution Name </b>
+                  <span>:</span>
+                  <span>{edu.institution}</span>
+                </p>
+                <p style={styles.edu_exp_}>
+                  <b>Year </b>
+                  <span>:</span>
+                  <span>{edu.date}</span>
+                </p>
+              </div>
+            ))}
+          </div>
+          <br />
+        </div>
+      )}
+      {/* certificates end */}
 
       {/* Skill */}
       {skills && (

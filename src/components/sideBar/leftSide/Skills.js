@@ -39,9 +39,6 @@ const Skills = () => {
           value={data && data.skills}
         />
       </div>
-      <div className={fromGroup}>
-        <input type="submit" value="Sumbit" />
-      </div>
     </form>
   );
 };

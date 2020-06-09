@@ -57,12 +57,13 @@ const LeftIndex = () => {
             </li>
             {activeItem === "edu" && <Education />}
             <li
-              onClick={() => setActiveItem("award")}
-              className={`${activeItem === "award" ? active : ""}`}
+              onClick={() => setActiveItem("Skills")}
+              className={`${activeItem === "Skills" ? active : ""}`}
             >
-              Honors &amp; Awards
+              Skills
             </li>
-            {activeItem === "award" && <Honors />}
+            {activeItem === "Skills" && <Skills />}
+
             <li
               onClick={() => setActiveItem("Certifications")}
               className={`${activeItem === "Certifications" ? active : ""}`}
@@ -71,26 +72,12 @@ const LeftIndex = () => {
             </li>
             {activeItem === "Certifications" && <Certifications />}
             <li
-              onClick={() => setActiveItem("Skills")}
-              className={`${activeItem === "Skills" ? active : ""}`}
+              onClick={() => setActiveItem("Additional")}
+              className={`${activeItem === "Additional" ? active : ""}`}
             >
-              Skills
+              Additional Information
             </li>
-            {activeItem === "Skills" && <Skills />}
-            <li
-              onClick={() => setActiveItem("Hobbies")}
-              className={`${activeItem === "Hobbies" ? active : ""}`}
-            >
-              Hobbies
-            </li>
-            {activeItem === "Hobbies" && <Hobbies />}
-            <li
-              onClick={() => setActiveItem("Languages")}
-              className={`${activeItem === "Languages" ? active : ""}`}
-            >
-              Languages
-            </li>
-            {activeItem === "Languages" && <Languages />}
+            {activeItem === "Additional" && <Additional />}
             <li
               onClick={() => setActiveItem("References")}
               className={`${activeItem === "References" ? active : ""}`}
@@ -98,13 +85,6 @@ const LeftIndex = () => {
               References
             </li>
             {activeItem === "References" && <References />}
-            <li
-              onClick={() => setActiveItem("Additional")}
-              className={`${activeItem === "Additional" ? active : ""}`}
-            >
-              Additional Information
-            </li>
-            {activeItem === "Additional" && <Additional />}
           </Fragment>
         )}
       </ul>
