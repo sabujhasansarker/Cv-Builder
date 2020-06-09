@@ -96,6 +96,8 @@ const SabujCv = ({
     height,
     religion,
     education,
+    experience,
+    skills,
   },
 }) => {
   return (
@@ -137,51 +139,55 @@ const SabujCv = ({
 
       <br />
       {/* Exp */}
-      <div style={styles.div}>
-        <p style={styles.title}>Work Experience:</p>
-        <br />
-        <div style={styles.m_l}>
-          <b style={styles.edu_exp_container}>
-            <span>Organization </span> <span>:</span>
-            <span>Sun Power Electronics</span>
-          </b>
-          <p style={styles.edu_exp_container}>
-            <b>Designation </b> <b>:</b>
-            <span>Sales Executive</span>
-          </p>
-          <p style={styles.edu_exp_container}>
-            <b>Time Duration </b> <b>:</b>
-            <span> 1stSeptember 2017 –31 October 2018</span>
-          </p>
-          <p style={{ margin: "5px 0px" }}>
-            <b>Duties :</b>
-            <p style={styles.mL_20}>
-              <p style={styles.p}>
-                &#10070; Communicatewith customers to choose electronicdevices
-                such as IPS and UPS.
+      {experience && experience.length > 0 && (
+        <div style={styles.div}>
+          <p style={styles.title}>Work Experience:</p>
+          <br />
+          {experience.map((exp) => (
+            <div style={styles.m_l} key={exp.id}>
+              <b style={styles.edu_exp_container}>
+                <span>Organization </span> <span>:</span>
+                <span>{exp.organization}</span>
+              </b>
+              <p style={styles.edu_exp_container}>
+                <b>Designation </b> <b>:</b>
+                <span>{exp.designation}</span>
               </p>
-              <p style={styles.p}>
-                &#10070; Communicatewith customers to choose electronicdevices
-                such as IPS and UPS.
+              <p style={styles.edu_exp_container}>
+                <b>Time Duration </b> <b>:</b>
+                <span>
+                  {" "}
+                  {moment(exp.from).format("LL")}{" "}
+                  {exp.to && (
+                    <Fragment>- {moment(exp.to).format("LL")}</Fragment>
+                  )}
+                </span>
               </p>
-              <p style={styles.p}>
-                &#10070; Communicatewith customers to choose electronicdevices
-                such as IPS and UPS.
-              </p>
-            </p>
-          </p>
+              {exp.duties && (
+                <p style={{ margin: "5px 0px" }}>
+                  <b>Duties :</b>
+                  <p style={styles.mL_20}>
+                    {exp.duties.split("\n").map((d, index) => (
+                      <p style={styles.p} key={index}>
+                        &#10070; {d}
+                      </p>
+                    ))}
+                  </p>
+                </p>
+              )}
+            </div>
+          ))}
+          <br />
         </div>
-      </div>
-      {/* Exp end */}
-
-      <br />
+      )}
+      {/* exp end */}
       {/* Educaion */}
       {education && education.length > 0 && (
         <div style={styles.div}>
           <p style={styles.title}>Educational Qualification</p>
           <div style={styles.m_l}>
             {education.map((edu) => (
-              <div style={{ marginBottom: "20px" }}>
+              <div style={{ marginBottom: "20px" }} key={edu.id}>
                 <b style={styles.p}>
                   {edu.degree}
                   {edu.result ? "" : "(runing)"}
@@ -228,18 +234,24 @@ const SabujCv = ({
       {/* education end */}
 
       {/* Skill */}
-      <div style={styles.div}>
-        <p style={styles.title}>Skills</p>
-        <div style={styles.m_l}>
-          <p style={styles.p}>
-            &#10070; HTML <br />
-            &#10070; HTML <br />
-          </p>
+      {skills && (
+        <div style={styles.div}>
+          <p style={styles.title}>Skills</p>
+          <div style={styles.m_l}>
+            <p style={styles.p}>
+              {skills.split("\n").map((skill, index) => (
+                <Fragment key={index}>
+                  &#10070; {skill} <br />
+                </Fragment>
+              ))}
+            </p>
+          </div>
+          <br />
         </div>
-      </div>
+      )}
+
       {/* skills end */}
 
-      <br />
       {/* Personal */}
       <div style={styles.div}>
         <p style={styles.title}>Personal Information</p>
@@ -290,8 +302,8 @@ const SabujCv = ({
               <span>:</span>
               <span>
                 {per_address &&
-                  per_address.split(",").map((per) => (
-                    <Fragment>
+                  per_address.split(",").map((per, index) => (
+                    <Fragment key={index}>
                       {per} <br />
                     </Fragment>
                   ))}

@@ -41,8 +41,12 @@ const Education = () => {
       {data &&
         data.education &&
         data.education.map((edu) => (
-          <div className="edu_sort">
-            <h4 onClick={() => deleteEdu(edu.id)}>
+          <div
+            className="edu_sort"
+            onClick={() => deleteEdu(edu.id)}
+            key={edu.id}
+          >
+            <h4>
               {edu.name.length > 20 ? (
                 <Fragment>{edu.name.substring(0, 20)}...</Fragment>
               ) : (

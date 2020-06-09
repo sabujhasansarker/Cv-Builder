@@ -1,17 +1,23 @@
-import React, { useState, useContext, useEffect } from "react";
+import React, { useState, useContext, useEffect, Fragment } from "react";
 
 import DataContext from "../../../context/DataContext";
+
+import style from "./Style.module.css";
 
 const Experience = () => {
   const { getData, data, addExp, deleteExp } = useContext(DataContext);
   useEffect(() => {
     getData();
   }, []);
+
+  const { from, fromGroup } = style;
+
   const [formData, setFormData] = useState({
-    name: "",
-    field_of_study: "",
-    result: "",
-    degree: "",
+    organization: "",
+    designation: "",
+    from: "",
+    to: "",
+    duties: "",
   });
   const onChange = (e) =>
     setFormData({
@@ -22,53 +28,90 @@ const Experience = () => {
   const onSubmit = (e) => {
     e.preventDefault();
     addExp(formData);
-    setFormData({ name: "", field_of_study: "", result: "", degree: "" });
+    setFormData({
+      organization: "",
+      designation: "",
+      from: "",
+      to: "",
+      duties: "",
+    });
   };
   return (
     <div className="edu_exp">
       {data &&
         data.experience &&
         data.experience.map((exp) => (
-          <h1 onClick={() => deleteExp(exp.id)}>{exp.name}</h1>
+          <div
+            className="edu_sort"
+            key={exp.id}
+            onClick={() => deleteExp(exp.id)}
+          >
+            <h4>
+              {exp.organization.length > 20 ? (
+                <Fragment>{exp.organization.substring(0, 20)}...</Fragment>
+              ) : (
+                exp.organization
+              )}
+            </h4>
+            <p>
+              {" "}
+              {exp.designation.length > 20 ? (
+                <Fragment>{exp.designation.substring(0, 20)}...</Fragment>
+              ) : (
+                exp.designation
+              )}
+            </p>
+          </div>
         ))}
       <form onSubmit={onSubmit}>
-        <div className="from-group">
+        <div className={fromGroup}>
           <input
             type="text"
-            placeholder="School name"
-            name="name"
+            placeholder="Organization name"
+            name="organization"
+            required
             onChange={onChange}
-            value={formData.name}
+            value={formData.organization}
           />
         </div>
-        <div className="from-group">
+        <div className={fromGroup}>
+          <label htmlFor="from">From :</label>
+          <input
+            type="date"
+            name="from"
+            required
+            onChange={onChange}
+            value={formData.from}
+          />
+        </div>
+        <div className={fromGroup}>
           <input
             type="text"
-            placeholder="Degree"
-            name="degree"
+            placeholder="Designation"
+            name="designation"
+            required
             onChange={onChange}
-            value={formData.degree}
+            value={formData.designation}
           />
         </div>
-        <div className="from-group">
+        <div className={fromGroup}>
+          <label htmlFor="to">To :</label>
           <input
-            type="text"
-            placeholder="Field Of Study"
-            name="field_of_study"
+            type="date"
+            name="to"
             onChange={onChange}
-            value={formData.field_of_study}
+            value={formData.to}
           />
         </div>
-        <div className="from-group">
-          <input
-            type="text"
-            placeholder="Result"
-            name="result"
+        <div className={fromGroup}>
+          <textarea
+            placeholder="Dities "
+            name="duties"
             onChange={onChange}
-            value={formData.result}
+            value={formData.duties}
           />
         </div>
-        <div className="from-group">
+        <div className={fromGroup}>
           <input type="submit" value="Sumbit" />
         </div>
       </form>
