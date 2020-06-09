@@ -69,3 +69,13 @@ iframe {
 p {
   margin: 0;
 }
+
+img.cv_img {
+  width: 150px;
+  border: 1px solid black;
+  border-radius: 3px;
+  cursor: pointer;
+}
+.all_cv {
+  padding: 20px;
+}

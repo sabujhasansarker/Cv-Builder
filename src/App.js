@@ -11,7 +11,9 @@ const App = () => {
   return (
     <DataState>
       <div className="gridContainer">
-        <div className="left">{/* <LeftIndex /> */}</div>
+        <div className="left">
+          <LeftIndex />
+        </div>
         <div className="center">
           <Contect />
           <Print />

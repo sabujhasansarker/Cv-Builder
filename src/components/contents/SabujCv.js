@@ -71,7 +71,9 @@ const styles = {
     fontSize: "20px",
   },
 };
-const SabujCv = ({ data: { name, address, phone, email, profilePic } }) => {
+const SabujCv = ({
+  data: { name, address, phone, email, profilePic, career_objectve },
+}) => {
   return (
     <Fragment>
       <div style={styles.profile}>
@@ -100,16 +102,16 @@ const SabujCv = ({ data: { name, address, phone, email, profilePic } }) => {
           {profilePic && <img src={profilePic} alt="" style={styles.img} />}
         </div>
       </div>
-      <div style={styles.div}>
-        <p style={styles.title}>Career Objective</p>
-        <div style={styles.m_l}>
-          <p style={styles.text}>
-            To save the organization toward the achievement of its goal by
-            devoting my energy skills and potentials in an ethical manner to be
-            a part of any section.
-          </p>
+      {career_objectve && (
+        <div style={styles.div}>
+          <p style={styles.title}>Career Objective</p>
+          <div style={styles.m_l}>
+            <p style={styles.text}>{career_objectve}</p>
+          </div>
         </div>
-      </div>
+      )}
+
+      <br />
       {/* Exp */}
       <div style={styles.div}>
         <p style={styles.title}>Work Experience:</p>
@@ -153,6 +155,8 @@ const SabujCv = ({ data: { name, address, phone, email, profilePic } }) => {
         </div>
       </div>
       {/* Exp end */}
+
+      <br />
       {/* Educaion */}
       <div style={styles.div}>
         <p style={styles.title}>Educational Qualification</p>
@@ -197,6 +201,88 @@ const SabujCv = ({ data: { name, address, phone, email, profilePic } }) => {
         </div>
       </div>
       {/* education end */}
+
+      <br />
+      {/* Skill */}
+      <div style={styles.div}>
+        <p style={styles.title}>Skills</p>
+        <div style={styles.m_l}>
+          <p style={styles.p}>
+            &#8226; HTML <br />
+            &#8226; HTML <br />
+          </p>
+        </div>
+      </div>
+      {/* skills end */}
+
+      <br />
+      {/* Personal */}
+      <div style={styles.div}>
+        <p style={styles.title}>Personal Information</p>
+        <div style={styles.m_l}>
+          <p style={styles.eduP}>
+            <span style={styles.m_r}>
+              <span style={styles.eduHeading}> &#8226; Name </span> :
+            </span>
+            Sabuj Hasan Sarker
+          </p>
+          <p style={styles.eduP}>
+            <span style={styles.m_r}>
+              <span style={styles.eduHeading}> &#8226; Father's Name </span> :
+            </span>
+            Sabuj Hasan Sarker
+          </p>
+          <p style={styles.eduP}>
+            <span style={styles.m_r}>
+              <span style={styles.eduHeading}> &#8226; Mother's Name </span> :
+            </span>
+            Sabuj Hasan Sarker
+          </p>
+          <p style={styles.eduP}>
+            <span style={styles.m_r}>
+              <span style={styles.eduHeading}> &#8226; Religion </span> :
+            </span>
+            Islam
+          </p>
+          <p style={styles.eduP}>
+            <span style={styles.m_r}>
+              <span style={styles.eduHeading}> &#8226; Gender </span> :
+            </span>
+            Male
+          </p>
+          <div
+            style={{
+              display: "-webkit-inline-box",
+              overflow: "hidden",
+              margin: "0px",
+            }}
+          >
+            <p style={{ margin: "0", marginRight: "20px" }}>
+              <span style={{ marginRight: "23px" }}>
+                &#8226; Present Address
+              </span>
+              :
+            </p>
+            <p style={{ margin: "0" }}>
+              Village:Lalmonirhat, P.O:Lalmonirhat, <br /> P.S:Lalmonirhat,
+              District:Lalmonirhat
+            </p>
+          </div>
+          <p style={styles.eduP}>
+            <span style={styles.m_r}>
+              <span style={styles.eduHeading}> &#8226; Marital Status </span> :
+            </span>
+            Unmarried
+          </p>
+          <p style={styles.eduP}>
+            <span style={styles.m_r}>
+              <span style={styles.eduHeading}> &#8226; Nationality </span> :
+            </span>
+            Bangladeshi
+          </p>
+        </div>
+      </div>
+      {/* Perrsonal end */}
     </Fragment>
   );
 };
