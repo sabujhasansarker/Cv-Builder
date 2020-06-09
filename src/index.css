@@ -107,3 +107,43 @@ img.printer_img {
   z-index: 99;
   cursor: url("https://img.icons8.com/plasticine/30/000000/print.png"), auto;
 }
+li {
+  background: cadetblue;
+}
+
+@media screen and (max-width: 769px) {
+  .gridContainer {
+    display: block;
+  }
+  .left {
+    display: none;
+  }
+  .right {
+    display: none;
+  }
+  img.printer_img {
+    left: 50%;
+    margin-left: -50px;
+  }
+}
+@media screen and (max-width: 426px) {
+  .profile_img {
+    width: 100px !important;
+    height: 100px !important;
+  }
+}
+@media screen and (max-width: 1025px) {
+  .gridContainer {
+    grid-template-columns: 1fr 1fr 0.5fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-areas: "Left Left Left center center center center center center center Right Right ";
+  }
+  img.cv_img {
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+  }
+}
+p {
+  word-break: break-all !important;
+  font-size: 15px !important;
+}

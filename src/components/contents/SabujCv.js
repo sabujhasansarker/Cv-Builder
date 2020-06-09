@@ -105,7 +105,7 @@ const SabujCv = ({
   return (
     <Fragment>
       <div style={styles.profile}>
-        <div className="left">
+        <div>
           <h4 style={styles.h4}>{name}</h4>
           {address && (
             <p style={styles.p}>
@@ -126,8 +126,15 @@ const SabujCv = ({
             </p>
           )}
         </div>
-        <div className="right">
-          {profilePic && <img src={profilePic} alt="" style={styles.img} />}
+        <div>
+          {profilePic && (
+            <img
+              className="profile_img"
+              src={profilePic}
+              alt=""
+              style={styles.img}
+            />
+          )}
         </div>
       </div>
       {career_objectve && (

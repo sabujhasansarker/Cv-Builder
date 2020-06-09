@@ -46,6 +46,7 @@ ul.left_list {
 .fromGroup input[type="submit"] {
   background: #18afb7;
   color: white;
+  width: 100%;
 }
 .fromGroup input:focus,
 select:focus,
