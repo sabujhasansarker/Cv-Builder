@@ -111,6 +111,9 @@ const Personal = () => {
           onChange={onChange}
           value={data && data.sex}
         >
+          <option selected disabled>
+            Choose an option
+          </option>
           <option value="Male">Male</option>
           <option value="Female">Female</option>
           <option value="Other">Other</option>
@@ -125,6 +128,9 @@ const Personal = () => {
           onChange={onChange}
           value={data && data.marital}
         >
+          <option selected disabled>
+            Choose an option
+          </option>
           <option value="Unmarried">Unmarried</option>
           <option value="Married">Married</option>
         </select>
@@ -138,6 +144,9 @@ const Personal = () => {
           onChange={onChange}
           value={data && data.religion}
         >
+          <option selected disabled>
+            Choose an option
+          </option>
           <option value="Islam">Islam</option>
           <option value="Hindu">Hindu</option>
           <option value="Buddhists">Buddhists</option>
@@ -153,6 +162,9 @@ const Personal = () => {
           onChange={onChange}
           value={data && data.nationality}
         >
+          <option selected disabled>
+            Choose an option
+          </option>
           {conuntryName &&
             conuntryName.map((country, index) => (
               <option value={country.demonym} key={index}>

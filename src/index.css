@@ -79,3 +79,15 @@ img.cv_img {
 .all_cv {
   padding: 20px;
 }
+.edu_sort {
+  padding: 10px 8px;
+  background: powderblue;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+.edu_sort h4 {
+  font-weight: 400;
+}
+.edu_sort p {
+  font-weight: 300;
+}

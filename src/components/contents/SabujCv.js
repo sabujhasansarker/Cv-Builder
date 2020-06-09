@@ -1,4 +1,5 @@
 import React, { Fragment } from "react";
+import moment from "moment";
 
 const styles = {
   profile: {
@@ -17,8 +18,8 @@ const styles = {
 
   p: {
     lineHeight: "1.6",
-    margin: "0 auto",
     fontSize: "15px",
+    margin: "0",
   },
   title: {
     background: "silver",
@@ -35,44 +36,67 @@ const styles = {
   div: {
     marginBottom: "20px",
   },
-  eduP: {
-    fontSize: "15px",
-    lineHeight: "1.5",
-    lineHeight: "1.6",
-    margin: "0",
+  edu_exp_container: {
+    display: "grid",
+    gridTemplateColumns: "0.3fr 0px 1fr",
+    gridColumnGap: "20px",
+    justifyItems: "stretch",
+    alignItems: "stretch",
+    margin: "0px",
   },
-  eduL: {
-    fontSize: "15px",
-    lineHeight: "1.5",
-    width: "65%",
-    float: "left",
-    lineHeight: "1.6",
-    margin: "0",
+  edu_exp_d: {
+    display: "grid",
+    gridTemplateColumns: "1fr 1fr",
+    gridColumnGap: "20px",
+    justifyItems: "stretch",
+    alignItems: "stretch",
   },
-  eduHeading: {
-    display: "table-cell",
-    width: "150px",
+  edu_exp_: {
+    display: "grid",
+    gridTemplateColumns: "0.6fr 0px 1fr",
+    gridColumnGap: "20px",
+    justifyItems: "stretch",
+    alignItems: "stretch",
+    margin: "0px",
   },
+
   m_l: {
     marginLeft: "20px",
     marginTop: "20px",
-  },
-  m_r: {
-    marginRight: "20px",
-  },
-  flex: {
-    display: "flex",
   },
   mL_20: {
     margin: "0",
     marginLeft: "20px",
   },
-  fs_20: {
-    fontSize: "20px",
+
+  singleContainer: {
+    display: "grid",
+    gridTemplateColumns: " .6fr 0px 1fr",
+    gridColumnGap: "20px",
+    justifyItems: "stretch",
+    alignItems: "stretch",
+    margin: "5px 0px",
   },
 };
 const SabujCv = ({
-  data: { name, address, phone, email, profilePic, career_objectve },
+  data: {
+    name,
+    address,
+    phone,
+    email,
+    profilePic,
+    career_objectve,
+    sex,
+    nationality,
+    f_name,
+    m_name,
+    per_address,
+    birth,
+    marital,
+    height,
+    religion,
+    education,
+  },
 }) => {
   return (
     <Fragment>
@@ -117,40 +141,34 @@ const SabujCv = ({
         <p style={styles.title}>Work Experience:</p>
         <br />
         <div style={styles.m_l}>
-          <p style={styles.eduP}>
-            <b style={styles.m_r}>
-              <span style={styles.eduHeading}>Organization </span> :
-            </b>
-            <b>Sun Power Electronics</b>
+          <b style={styles.edu_exp_container}>
+            <span>Organization </span> <span>:</span>
+            <span>Sun Power Electronics</span>
+          </b>
+          <p style={styles.edu_exp_container}>
+            <b>Designation </b> <b>:</b>
+            <span>Sales Executive</span>
           </p>
-          <p style={styles.eduP}>
-            <b style={styles.m_r}>
-              <span style={styles.eduHeading}>Designation </span> :
-            </b>
-            Sales Executive
+          <p style={styles.edu_exp_container}>
+            <b>Time Duration </b> <b>:</b>
+            <span> 1stSeptember 2017 –31 October 2018</span>
           </p>
-          <p style={styles.eduP}>
-            <b style={styles.m_r}>
-              <span style={styles.eduHeading}>Time Duration </span> :
-            </b>{" "}
-            1stSeptember 2017 –31 October 2018
-          </p>
-          <p style={styles.eduP}>
-            <b>Duties:</b>
-            <div>
-              <p style={styles.mL_20}>
-                <span style={styles.fs_20}>&#10070;</span> Communicatewith
-                customers to choose electronicdevices such as IPS and UPS.
+          <p style={{ margin: "5px 0px" }}>
+            <b>Duties :</b>
+            <p style={styles.mL_20}>
+              <p style={styles.p}>
+                &#10070; Communicatewith customers to choose electronicdevices
+                such as IPS and UPS.
               </p>
-              <p style={styles.mL_20}>
-                <span style={styles.fs_20}>&#10070;</span> Communicatewith
-                customers to choose electronicdevices such as IPS and UPS.
+              <p style={styles.p}>
+                &#10070; Communicatewith customers to choose electronicdevices
+                such as IPS and UPS.
               </p>
-              <p style={styles.mL_20}>
-                <span style={styles.fs_20}>&#10070;</span> Communicatewith
-                customers to choose electronicdevices such as IPS and UPS.
+              <p style={styles.p}>
+                &#10070; Communicatewith customers to choose electronicdevices
+                such as IPS and UPS.
               </p>
-            </div>
+            </p>
           </p>
         </div>
       </div>
@@ -158,58 +176,64 @@ const SabujCv = ({
 
       <br />
       {/* Educaion */}
-      <div style={styles.div}>
-        <p style={styles.title}>Educational Qualification</p>
-        <div style={styles.m_l}>
-          <p style={styles.eduP}>
-            <b>BBA (Honors) in Management Information System</b>
-          </p>
-          <p style={styles.eduP}>
-            <b style={styles.m_r}>
-              <span style={styles.eduHeading}>Institution Name </span> :
-            </b>
-            <b>Habibullah Bahar University</b>
-          </p>
-          <div style={styles.flex}>
-            <p style={styles.eduL}>
-              <b style={styles.m_r}>
-                <span style={styles.eduHeading}>Group</span> :
-              </b>
-              Business Studies
-            </p>
-            <p style={styles.eduP}>
-              <b style={styles.m_r}>
-                <span style={styles.eduHeading}>Passing Year </span> :
-              </b>
-              2015
-            </p>
+      {education && education.length > 0 && (
+        <div style={styles.div}>
+          <p style={styles.title}>Educational Qualification</p>
+          <div style={styles.m_l}>
+            {education.map((edu) => (
+              <div style={{ marginBottom: "20px" }}>
+                <b style={styles.p}>
+                  {edu.degree}
+                  {edu.result ? "" : "(runing)"}
+                </b>
+                <b style={{ display: "block" }}>
+                  <span>Institution Name </span>
+                  <span style={{ margin: "0px 16px 0px 4px" }}>:</span>
+                  <span>{edu.name}</span>
+                </b>
+                <div style={styles.edu_exp_d}>
+                  <p style={styles.edu_exp_}>
+                    <b>Group</b>
+                    <b>:</b>
+                    {edu.group}
+                  </p>
+                  <p style={styles.edu_exp_}>
+                    {edu.passing_year && (
+                      <Fragment>
+                        <b>Passing Year </b> <b>:</b> {edu.passing_year}
+                      </Fragment>
+                    )}
+                  </p>
+                  <p style={styles.edu_exp_}>
+                    {edu.board && (
+                      <Fragment>
+                        <b>Board </b> <b>:</b> {edu.board}
+                      </Fragment>
+                    )}
+                  </p>
+                  <p style={styles.edu_exp_}>
+                    {edu.result && (
+                      <Fragment>
+                        <b>Result </b> <b>:</b> GPA {edu.result}
+                      </Fragment>
+                    )}
+                  </p>
+                </div>
+              </div>
+            ))}
           </div>
-          <div style={styles.flex}>
-            <p style={styles.eduL}>
-              <b style={styles.m_r}>
-                <span style={styles.eduHeading}>Board</span> :
-              </b>
-              Dhaka
-            </p>
-            <p style={styles.eduP}>
-              <b style={styles.m_r}>
-                <span style={styles.eduHeading}>Result </span> :
-              </b>
-              GPA 4.5
-            </p>
-          </div>
+          <br />
         </div>
-      </div>
+      )}
       {/* education end */}
 
-      <br />
       {/* Skill */}
       <div style={styles.div}>
         <p style={styles.title}>Skills</p>
         <div style={styles.m_l}>
           <p style={styles.p}>
-            &#8226; HTML <br />
-            &#8226; HTML <br />
+            &#10070; HTML <br />
+            &#10070; HTML <br />
           </p>
         </div>
       </div>
@@ -220,66 +244,80 @@ const SabujCv = ({
       <div style={styles.div}>
         <p style={styles.title}>Personal Information</p>
         <div style={styles.m_l}>
-          <p style={styles.eduP}>
-            <span style={styles.m_r}>
-              <span style={styles.eduHeading}> &#8226; Name </span> :
-            </span>
-            Sabuj Hasan Sarker
-          </p>
-          <p style={styles.eduP}>
-            <span style={styles.m_r}>
-              <span style={styles.eduHeading}> &#8226; Father's Name </span> :
-            </span>
-            Sabuj Hasan Sarker
-          </p>
-          <p style={styles.eduP}>
-            <span style={styles.m_r}>
-              <span style={styles.eduHeading}> &#8226; Mother's Name </span> :
-            </span>
-            Sabuj Hasan Sarker
-          </p>
-          <p style={styles.eduP}>
-            <span style={styles.m_r}>
-              <span style={styles.eduHeading}> &#8226; Religion </span> :
-            </span>
-            Islam
-          </p>
-          <p style={styles.eduP}>
-            <span style={styles.m_r}>
-              <span style={styles.eduHeading}> &#8226; Gender </span> :
-            </span>
-            Male
-          </p>
-          <div
-            style={{
-              display: "-webkit-inline-box",
-              overflow: "hidden",
-              margin: "0px",
-            }}
-          >
-            <p style={{ margin: "0", marginRight: "20px" }}>
-              <span style={{ marginRight: "23px" }}>
-                &#8226; Present Address
+          {name && (
+            <p style={styles.singleContainer}>
+              <span>&#10070; Name</span>
+              <span>:</span>
+              <span>{name}</span>
+            </p>
+          )}
+          {f_name && (
+            <p style={styles.singleContainer}>
+              <span> &#10070; Father's Name </span>
+              <span>:</span>
+              <span>{f_name}</span>
+            </p>
+          )}
+          {m_name && (
+            <p style={styles.singleContainer}>
+              <span> &#10070; Mother's Name </span> <span>:</span>
+              <span>{m_name}</span>
+            </p>
+          )}
+          {birth && (
+            <p style={styles.singleContainer}>
+              <span> &#10070; Date of birth </span>
+              <span>:</span>
+              <span> {moment(birth).format("LL")}</span>
+            </p>
+          )}
+          {religion && (
+            <p style={styles.singleContainer}>
+              <span> &#10070; Religion </span> <span>:</span>
+              <span>{religion}</span>
+            </p>
+          )}
+          {sex && (
+            <p style={styles.singleContainer}>
+              <span> &#10070; Gender </span>
+              <span>:</span>
+              <span>{sex}</span>
+            </p>
+          )}
+          {per_address && (
+            <div style={styles.singleContainer}>
+              <span>&#10070; Present Address</span>
+              <span>:</span>
+              <span>
+                {per_address &&
+                  per_address.split(",").map((per) => (
+                    <Fragment>
+                      {per} <br />
+                    </Fragment>
+                  ))}
               </span>
-              :
+            </div>
+          )}
+
+          {marital && (
+            <p style={styles.singleContainer}>
+              <span> &#10070; Marital Status </span>
+              <span>:</span>
+              <span> {marital}</span>
             </p>
-            <p style={{ margin: "0" }}>
-              Village:Lalmonirhat, P.O:Lalmonirhat, <br /> P.S:Lalmonirhat,
-              District:Lalmonirhat
+          )}
+          {nationality && (
+            <p style={styles.singleContainer}>
+              <span> &#10070; Nationality </span> <span>:</span>
+              <span>{nationality}</span>
             </p>
-          </div>
-          <p style={styles.eduP}>
-            <span style={styles.m_r}>
-              <span style={styles.eduHeading}> &#8226; Marital Status </span> :
-            </span>
-            Unmarried
-          </p>
-          <p style={styles.eduP}>
-            <span style={styles.m_r}>
-              <span style={styles.eduHeading}> &#8226; Nationality </span> :
-            </span>
-            Bangladeshi
-          </p>
+          )}
+          {height && (
+            <p style={styles.singleContainer}>
+              <span> &#10070; Height </span> <span>:</span>
+              <span>{height}″</span>
+            </p>
+          )}
         </div>
       </div>
       {/* Perrsonal end */}

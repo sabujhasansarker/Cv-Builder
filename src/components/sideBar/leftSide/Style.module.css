@@ -27,16 +27,25 @@ ul.left_list {
   width: 100%;
 }
 .fromGroup {
+  margin: 10px 0px;
 }
 .fromGroup input,
-.fromGroup textarea {
+.fromGroup textarea,
+.fromGroup select {
   background: whitesmoke;
   border: 0;
   padding: 10px 5px;
   display: block;
   border-radius: 5px;
   resize: none;
-  width: 94%;
+  width: 180px;
+}
+.fromGroup select {
+  width: 190px;
+}
+.fromGroup input[type="submit"] {
+  background: #18afb7;
+  color: white;
 }
 .fromGroup input:focus,
 select:focus,
