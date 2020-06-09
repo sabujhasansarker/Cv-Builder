@@ -38,12 +38,16 @@ const styles = {
   eduP: {
     fontSize: "15px",
     lineHeight: "1.5",
+    lineHeight: "1.6",
+    margin: "0",
   },
   eduL: {
     fontSize: "15px",
     lineHeight: "1.5",
     width: "65%",
     float: "left",
+    lineHeight: "1.6",
+    margin: "0",
   },
   eduHeading: {
     display: "table-cell",
@@ -51,12 +55,20 @@ const styles = {
   },
   m_l: {
     marginLeft: "20px",
+    marginTop: "20px",
   },
   m_r: {
     marginRight: "20px",
   },
   flex: {
     display: "flex",
+  },
+  mL_20: {
+    margin: "0",
+    marginLeft: "20px",
+  },
+  fs_20: {
+    fontSize: "20px",
   },
 };
 const SabujCv = ({ data: { name, address, phone, email, profilePic } }) => {
@@ -98,14 +110,57 @@ const SabujCv = ({ data: { name, address, phone, email, profilePic } }) => {
           </p>
         </div>
       </div>
+      {/* Exp */}
+      <div style={styles.div}>
+        <p style={styles.title}>Work Experience:</p>
+        <br />
+        <div style={styles.m_l}>
+          <p style={styles.eduP}>
+            <b style={styles.m_r}>
+              <span style={styles.eduHeading}>Organization </span> :
+            </b>
+            <b>Sun Power Electronics</b>
+          </p>
+          <p style={styles.eduP}>
+            <b style={styles.m_r}>
+              <span style={styles.eduHeading}>Designation </span> :
+            </b>
+            Sales Executive
+          </p>
+          <p style={styles.eduP}>
+            <b style={styles.m_r}>
+              <span style={styles.eduHeading}>Time Duration </span> :
+            </b>{" "}
+            1stSeptember 2017 –31 October 2018
+          </p>
+          <p style={styles.eduP}>
+            <b>Duties:</b>
+            <div>
+              <p style={styles.mL_20}>
+                <span style={styles.fs_20}>&#10070;</span> Communicatewith
+                customers to choose electronicdevices such as IPS and UPS.
+              </p>
+              <p style={styles.mL_20}>
+                <span style={styles.fs_20}>&#10070;</span> Communicatewith
+                customers to choose electronicdevices such as IPS and UPS.
+              </p>
+              <p style={styles.mL_20}>
+                <span style={styles.fs_20}>&#10070;</span> Communicatewith
+                customers to choose electronicdevices such as IPS and UPS.
+              </p>
+            </div>
+          </p>
+        </div>
+      </div>
+      {/* Exp end */}
+      {/* Educaion */}
       <div style={styles.div}>
         <p style={styles.title}>Educational Qualification</p>
         <div style={styles.m_l}>
           <p style={styles.eduP}>
-            <br />
             <b>BBA (Honors) in Management Information System</b>
           </p>
-          <p>
+          <p style={styles.eduP}>
             <b style={styles.m_r}>
               <span style={styles.eduHeading}>Institution Name </span> :
             </b>
@@ -141,6 +196,7 @@ const SabujCv = ({ data: { name, address, phone, email, profilePic } }) => {
           </div>
         </div>
       </div>
+      {/* education end */}
     </Fragment>
   );
 };
