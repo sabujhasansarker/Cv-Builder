@@ -10,7 +10,7 @@ const Experience = () => {
     getData();
   }, []);
 
-  const { from, fromGroup } = style;
+  const { fromGroup } = style;
 
   const [formData, setFormData] = useState({
     organization: "",

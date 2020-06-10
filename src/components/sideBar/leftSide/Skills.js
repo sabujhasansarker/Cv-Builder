@@ -13,7 +13,7 @@ const Skills = () => {
   }, []);
   const fromData = useRef();
   fromData.current = data && data;
-  const { from, fromGroup } = style;
+  const { fromGroup } = style;
 
   const onChange = (e) => {
     setData({ ...data, [e.target.name]: e.target.value });

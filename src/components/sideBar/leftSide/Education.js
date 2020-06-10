@@ -9,7 +9,7 @@ const Education = () => {
   useEffect(() => {
     getData();
   }, []);
-  const { from, fromGroup } = style;
+  const { fromGroup } = style;
   const [formData, setFormData] = useState({
     name: "",
     group: "",
