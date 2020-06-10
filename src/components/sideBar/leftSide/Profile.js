@@ -50,7 +50,7 @@ const Profile = () => {
           name="profilePic"
           ref={fromData.profilePic}
           onChange={onChange}
-          value={data && data.profilePic}
+          value={data && data.profilePic ? data.profilePic : ""}
         />
       </div>
       <div className={fromGroup}>
@@ -62,7 +62,7 @@ const Profile = () => {
           name="name"
           ref={fromData.name}
           onChange={onChange}
-          value={data && data.name}
+          value={data && data.name ? data.name : ""}
         />
       </div>
       <div className={fromGroup}>
@@ -74,7 +74,7 @@ const Profile = () => {
           name="address"
           ref={fromData.address}
           onChange={onChange}
-          value={data && data.address}
+          value={data && data.address ? data.address : ""}
         />
       </div>
       <div className={fromGroup}>
@@ -86,7 +86,7 @@ const Profile = () => {
           name="phone"
           ref={fromData.phone}
           onChange={onChange}
-          value={data && data.phone}
+          value={data && data.phone ? data.phone : ""}
         />
       </div>
       <div className={fromGroup}>
@@ -98,7 +98,7 @@ const Profile = () => {
           name="email"
           ref={fromData.email}
           onChange={onChange}
-          value={data && data.email}
+          value={data && data.email ? data.email : ""}
         />
       </div>
       <div className={fromGroup}>
@@ -109,7 +109,7 @@ const Profile = () => {
           name="career_objectve"
           ref={fromData.career_objectve}
           onChange={onChange}
-          value={data && data.career_objectve}
+          value={data && data.career_objectve ? data.career_objectve : ""}
         />
       </div>
     </form>

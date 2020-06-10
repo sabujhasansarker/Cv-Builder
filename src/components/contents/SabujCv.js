@@ -175,13 +175,13 @@ const SabujCv = ({
               {exp.duties && (
                 <p style={{ margin: "5px 0px" }}>
                   <b>Duties :</b>
-                  <p style={styles.mL_20}>
+                  <span style={styles.mL_20}>
                     {exp.duties.split("\n").map((d, index) => (
-                      <p style={styles.p} key={index}>
+                      <span style={styles.p} key={index}>
                         &#10070; {d}
-                      </p>
+                      </span>
                     ))}
-                  </p>
+                  </span>
                 </p>
               )}
             </div>
@@ -340,7 +340,7 @@ const SabujCv = ({
               <span>:</span>
               <span>
                 {per_address &&
-                  per_address.split(",").map((per, index) => (
+                  per_address.split("\n").map((per, index) => (
                     <Fragment key={index}>
                       {per} <br />
                     </Fragment>

@@ -63,7 +63,7 @@ const Personal = () => {
           name="f_name"
           ref={fromData.f_name}
           onChange={onChange}
-          value={data && data.f_name}
+          value={data && data.f_name ? data.f_name : ""}
         />
       </div>
       <div className={fromGroup}>
@@ -75,19 +75,17 @@ const Personal = () => {
           name="m_name"
           ref={fromData.m_name}
           onChange={onChange}
-          value={data && data.m_name}
+          value={data && data.m_name ? data.m_name : ""}
         />
       </div>
       <div className={fromGroup}>
         <label>Permanent Address</label>
-        <input
-          type="text"
-          className="form-control"
+        <textarea
           placeholder="Permanent Address"
           name="per_address"
           ref={fromData.per_address}
           onChange={onChange}
-          value={data && data.per_address}
+          value={data && data.per_address ? data.per_address : ""}
         />
       </div>
       <div className={fromGroup}>
@@ -99,79 +97,87 @@ const Personal = () => {
           name="birth"
           ref={fromData.birth}
           onChange={onChange}
-          value={data && data.birth}
+          value={data && data.birth ? data.birth : ""}
         />
       </div>
       <div className={fromGroup}>
-        <label>Sex</label>
-        <select
-          className="from-control"
-          name="sex"
-          ref={fromData.sex}
-          onChange={onChange}
-          value={data && data.sex}
-        >
-          <option selected disabled>
-            Choose an option
-          </option>
-          <option value="Male">Male</option>
-          <option value="Female">Female</option>
-          <option value="Other">Other</option>
-        </select>
+        <label>
+          Sex
+          <select
+            className="from-control"
+            name="sex"
+            ref={fromData.sex}
+            onChange={onChange}
+            value={data && data.sex ? data.sex : "null"}
+          >
+            <option disabled value="null">
+              Choose an option
+            </option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+            <option value="Other">Other</option>
+          </select>
+        </label>
       </div>
       <div className={fromGroup}>
-        <label>Marital Status</label>
-        <select
-          className="from-control"
-          name="marital"
-          ref={fromData.marital}
-          onChange={onChange}
-          value={data && data.marital}
-        >
-          <option selected disabled>
-            Choose an option
-          </option>
-          <option value="Unmarried">Unmarried</option>
-          <option value="Married">Married</option>
-        </select>
+        <label>
+          Marital Status
+          <select
+            className="from-control"
+            name="marital"
+            ref={fromData.marital}
+            onChange={onChange}
+            value={data && data.marital ? data.marital : "null"}
+          >
+            <option value="null" disabled>
+              Choose an option
+            </option>
+            <option value="Unmarried">Unmarried</option>
+            <option value="Married">Married</option>
+          </select>
+        </label>
       </div>
       <div className={fromGroup}>
-        <label>Religion</label>
-        <select
-          className="from-control"
-          name="religion"
-          ref={fromData.religion}
-          onChange={onChange}
-          value={data && data.religion}
-        >
-          <option selected disabled>
-            Choose an option
-          </option>
-          <option value="Islam">Islam</option>
-          <option value="Hindu">Hindu</option>
-          <option value="Buddhists">Buddhists</option>
-          <option value="Christians">Christians</option>
-        </select>
+        <label>
+          Religion
+          <select
+            className="from-control"
+            name="religion"
+            ref={fromData.religion}
+            onChange={onChange}
+            value={data && data.religion ? data.religion : "null"}
+          >
+            <option value="null" disabled>
+              Choose an option
+            </option>
+            <option value="Islam">Islam</option>
+            <option value="Hindu">Hindu</option>
+            <option value="Buddhists">Buddhists</option>
+            <option value="Christians">Christians</option>
+          </select>
+        </label>
       </div>
       <div className={fromGroup}>
-        <label>Nationality</label>
-        <select
-          className="from-control"
-          name="nationality"
-          ref={fromData.nationality}
-          onChange={onChange}
-          value={data && data.nationality}
-        >
-          <option selected disabled>
-            Choose an option
-          </option>
-          {conuntryName &&
-            conuntryName.map((country, index) => (
-              <option value={country.demonym} key={index}>
-                {country.demonym}
-              </option>
-            ))}
-        </select>
+        <label>
+          Nationality
+          <select
+            className="from-control"
+            name="nationality"
+            ref={fromData.nationality}
+            onChange={onChange}
+            value={data && data.nationality ? data.nationality : "null"}
+          >
+            <option value="null" disabled>
+              Choose an option
+            </option>
+            {conuntryName &&
+              conuntryName.map((country, index) => (
+                <option value={country.demonym} key={index}>
+                  {country.demonym}
+                </option>
+              ))}
+          </select>
+        </label>
       </div>
       <div className={fromGroup}>
         <label>Height</label>
@@ -182,7 +188,7 @@ const Personal = () => {
           name="height"
           ref={fromData.height}
           onChange={onChange}
-          value={data && data.height}
+          value={data && data.height ? data.height : ""}
         />
       </div>
     </form>
