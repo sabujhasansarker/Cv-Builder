@@ -78,6 +78,17 @@ img.cv_img {
 }
 .all_cv {
   padding: 20px;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  background-color: #fff;
+  height: 100vh;
+  overflow-y: scroll;
+  position: fixed;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
 }
 .edu_sort {
   padding: 10px 8px;
@@ -111,25 +122,80 @@ li {
   background: cadetblue;
 }
 
+p {
+  word-break: break-all !important;
+  font-size: 15px !important;
+}
+
+.rightScreen,
+.leftScreen,
+.topScreen,
+.arro_img {
+  display: none;
+  z-index: 999;
+}
+
 @media screen and (max-width: 769px) {
   .gridContainer {
     display: block;
   }
   .left {
     display: none;
+    width: 0px;
   }
   .right {
     display: none;
+    width: 0px;
   }
   img.printer_img {
     left: 50%;
     margin-left: -50px;
+  } /* media */
+  .leftScreen {
+    position: fixed;
+    background: antiquewhite;
+    height: 80px;
+    width: 40px;
+    top: 50%;
+    margin-top: -50px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    left: 0;
+  }
+  .rightScreen {
+    position: fixed;
+    background: antiquewhite;
+    height: 80px;
+    width: 40px;
+    top: 80%;
+    margin-top: -50px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    right: 0;
+  }
+
+  .arro_img {
+    width: 30px;
+    display: block;
+  }
+  .leftOpen .Style_left__3bS6I {
+    width: 0%;
+    transition: 1s all;
   }
 }
 @media screen and (max-width: 426px) {
   .profile_img {
     width: 100px !important;
     height: 100px !important;
+  }
+  .all_cv {
+    display: block;
   }
 }
 @media screen and (max-width: 1025px) {
@@ -142,8 +208,44 @@ li {
     margin: 0 auto;
     text-align: center;
   }
+  .all_cv {
+    width: unset;
+  }
 }
-p {
-  word-break: break-all !important;
-  font-size: 15px !important;
+
+.leftOpen {
+  display: block;
+  position: unset;
+}
+.leftOpen input,
+.leftOpen textarea {
+  width: 98% !important;
+}
+.leftOpen input[type="submit"],
+.leftOpen select {
+  width: 100% !important;
+}
+.leftOpen .Style_left__3bS6I {
+  width: 80%;
+  transition: 1s all;
+}
+.leftOpen .leftScreen {
+  left: 82.5%;
+}
+.rightOpen {
+  display: block;
+  width: 500px !important;
+}
+.rightOpen .all_cv {
+  position: fixed;
+  top: 0;
+  left: 30%;
+  text-align: center;
+  right: 0;
+}
+.rightOpen img.cv_img {
+  width: 150px;
+}
+.rightOpen .rightScreen {
+  left: 25%;
 }
