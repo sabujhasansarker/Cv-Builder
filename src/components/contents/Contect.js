@@ -12,13 +12,13 @@ const Contect = () => {
   }, []);
   return (
     <div className="cv-container">
-      {/* {cv === "sabuj" && (
+      {cv === "sabuj" && (
         <SabujCv
           data={data ? data : ""}
           deleteEdu={deleteEdu}
           deleteExp={deleteExp}
         />
-      )} */}
+      )}
       {cv === "rakib" && (
         <RakibCv
           data={data ? data : ""}
@@ -26,7 +26,7 @@ const Contect = () => {
           deleteExp={deleteExp}
         />
       )}
-      {cv === "sabuj" && (
+      {cv === "fahad" && (
         <FahadCv
           data={data ? data : ""}
           deleteEdu={deleteEdu}
