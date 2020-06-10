@@ -175,9 +175,23 @@ const SabujCv = ({
               {exp.duties && (
                 <p style={{ margin: "5px 0px" }}>
                   <b>Duties :</b>
-                  <span style={styles.mL_20}>
+                  <span
+                    style={{
+                      margin: "0",
+                      display: "block",
+                      marginLeft: "20px",
+                    }}
+                  >
                     {exp.duties.split("\n").map((d, index) => (
-                      <span style={styles.p} key={index}>
+                      <span
+                        style={{
+                          lineHeight: "1.6",
+                          fontSize: "15px",
+                          margin: "0",
+                          display: "block",
+                        }}
+                        key={index}
+                      >
                         &#10070; {d}
                       </span>
                     ))}

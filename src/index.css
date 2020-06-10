@@ -4,6 +4,17 @@
   padding: 0;
   font-family: "Lato", sans-serif;
 }
+span,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+b {
+  line-height: 1.6;
+}
 .gridContainer {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
@@ -83,12 +94,12 @@ img.cv_img {
   height: 100vh;
   overflow-y: scroll;
   position: fixed;
-  width: 100%;
+  width: 23%;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(5, 1fr);
   grid-column-gap: 0px;
-  grid-row-gap: 0px;
+  grid-row-gap: 20px;
 }
 .edu_sort {
   padding: 10px 8px;
@@ -207,9 +218,12 @@ p {
     width: 100%;
     margin: 0 auto;
     text-align: center;
+    margin-bottom: 20px;
+    margin-right: 20px;
   }
   .all_cv {
     width: unset;
+    display: block;
   }
 }
 
@@ -248,4 +262,7 @@ p {
 }
 .rightOpen .rightScreen {
   left: 25%;
+}
+img.cv_img.active {
+  border: 2px solid green;
 }
