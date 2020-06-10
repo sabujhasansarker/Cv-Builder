@@ -91,11 +91,13 @@ const FahadCv = ({
         />
       </div>
       <hr style={styles.hrHeading} />
-      <div style={styles.mb_20}>
-        <h4 style={{ margin: "0" }}>Object</h4>
-        <hr style={styles.hr} />
-        {career_objectve}
-      </div>
+      {career_objectve && (
+        <div style={styles.mb_20}>
+          <h4 style={{ margin: "0" }}>Object</h4>
+          <hr style={styles.hr} />
+          {career_objectve}
+        </div>
+      )}
 
       {/* Expreance */}
       {experience && (
