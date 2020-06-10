@@ -45,6 +45,7 @@ const App = () => {
         )}
         <div className={`right ${toggle === "right" && "rightOpen"}`}>
           <RightSide />
+
           {toggle === "right" && (
             <div className="rightScreen" onClick={() => setToggle()}>
               <img

@@ -7,6 +7,14 @@ const RightSide = () => {
   const { setCv, cv } = useContext(DataContext);
   return (
     <div className="all_cv">
+      <div></div>
+      <a
+        href="https://github.com/sabujhasansarker"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <img src="https://bit.ly/3cQRiNO" alt="" className="icon_img" />
+      </a>
       <img
         className={`cv_img ${cv === "sabuj" && "active"}`}
         onClick={() => setCv("sabuj")}
