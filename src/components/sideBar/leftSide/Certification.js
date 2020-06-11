@@ -101,7 +101,7 @@ const Certtification = () => {
           />
         </div>
         <div className={fromGroup}>
-          <input type="submit" value="Sumbit" />
+          <input type="submit" value="Submit" />
         </div>
       </form>
     </div>
